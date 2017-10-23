@@ -4,6 +4,7 @@ var imagemin = require('gulp-imagemin');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('html', function() {
   gulp.src('./resources/assets/*.php')
@@ -14,6 +15,7 @@ gulp.task('sass', function() {
   gulp.src('./resources/assets/sass/*.scss')
       .pipe(plumber())
       .pipe(sass({outputStyle: 'expanded'}))
+      .pipe(autoprefixer())
       .pipe(gulp.dest('./public/css'));
 });
 
